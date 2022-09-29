@@ -11,13 +11,13 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-pnpm",
-    "gatsby-plugin-emotion",
+    "gatsby-plugin-postcss",
     "gatsby-transformer-remark",
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "pages",
-        path: "./src/pages/",
+        name: "contents",
+        path: "./contents",
       },
       __key: "pages",
     },
