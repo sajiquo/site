@@ -1,0 +1,3 @@
+[submodule "submodules/shorts"]
+	path = submodules/shorts
+	url = https://github.com/sajiquo/shorts.git
