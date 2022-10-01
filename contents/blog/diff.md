@@ -1,11 +1,9 @@
 ---
-title: testpost
-slug: blog/diff.html
+title: 20150224 / 20221002
+slug: blog/20150224-20221002.html
 type: diff
 lastmod: 2022-10-01T04:43:13.475Z
-date: 2022-09-25T10:25:11.000Z
-before: _raw/before.md
-after: _raw/after.md
+date: 2022-10-01T09:05:04.442Z
+before: _raw/20150224.md
+after: _raw/20221002.md
 ---
-
-

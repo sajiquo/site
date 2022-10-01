@@ -19,10 +19,12 @@ const resolveContext = (
         slug: frontmatter.slug,
       };
     case "diff":
-      if (!frontmatter.before || !frontmatter.after) return;
+      const { slug, before, after } = frontmatter;
+      if (!slug || !before || !after) return;
       return {
-        before: frontmatter.before,
-        after: frontmatter.after,
+        slug,
+        before,
+        after,
       };
   }
 };

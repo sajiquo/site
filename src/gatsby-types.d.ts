@@ -2798,10 +2798,11 @@ type StringQueryOperatorInput = {
 type DiffPageQueryVariables = Exact<{
   before: Scalars['String'];
   after: Scalars['String'];
+  slug: Scalars['String'];
 }>;
 
 
-type DiffPageQuery = { readonly before: { readonly rawMarkdownBody: string | null } | null, readonly after: { readonly rawMarkdownBody: string | null } | null };
+type DiffPageQuery = { readonly before: { readonly rawMarkdownBody: string | null } | null, readonly after: { readonly rawMarkdownBody: string | null } | null, readonly meta: { readonly frontmatter: { readonly title: string | null, readonly date: string | null, readonly lastmod: string | null } | null } | null };
 
 type TextPageQueryVariables = Exact<{
   slug: Scalars['String'];
