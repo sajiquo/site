@@ -13,7 +13,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "preinstall": "git submodule update --remote"
+    "preinstall": "git submodule sync --recursive && git submodule update --init --recursive"
   },
   "dependencies": {
     "gatsby": "^4.24.0",
