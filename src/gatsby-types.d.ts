@@ -576,8 +576,12 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.excerptAst'
   | 'childMarkdownRemark.fileAbsolutePath'
+  | 'childMarkdownRemark.frontmatter.date'
+  | 'childMarkdownRemark.frontmatter.draft'
+  | 'childMarkdownRemark.frontmatter.lastmod'
   | 'childMarkdownRemark.frontmatter.slug'
   | 'childMarkdownRemark.frontmatter.title'
+  | 'childMarkdownRemark.frontmatter.type'
   | 'childMarkdownRemark.frontmatter.version'
   | 'childMarkdownRemark.headings'
   | 'childMarkdownRemark.headings.depth'
@@ -637,8 +641,12 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.excerptAst'
   | 'childrenMarkdownRemark.fileAbsolutePath'
+  | 'childrenMarkdownRemark.frontmatter.date'
+  | 'childrenMarkdownRemark.frontmatter.draft'
+  | 'childrenMarkdownRemark.frontmatter.lastmod'
   | 'childrenMarkdownRemark.frontmatter.slug'
   | 'childrenMarkdownRemark.frontmatter.title'
+  | 'childrenMarkdownRemark.frontmatter.type'
   | 'childrenMarkdownRemark.frontmatter.version'
   | 'childrenMarkdownRemark.headings'
   | 'childrenMarkdownRemark.headings.depth'
@@ -1101,8 +1109,12 @@ type MarkdownRemarkFieldsEnum =
   | 'excerpt'
   | 'excerptAst'
   | 'fileAbsolutePath'
+  | 'frontmatter.date'
+  | 'frontmatter.draft'
+  | 'frontmatter.lastmod'
   | 'frontmatter.slug'
   | 'frontmatter.title'
+  | 'frontmatter.type'
   | 'frontmatter.version'
   | 'headings'
   | 'headings.depth'
@@ -1191,14 +1203,38 @@ type MarkdownRemarkFilterListInput = {
 };
 
 type MarkdownRemarkFrontmatter = {
+  readonly date: Maybe<Scalars['Date']>;
+  readonly draft: Maybe<Scalars['Boolean']>;
+  readonly lastmod: Maybe<Scalars['Date']>;
   readonly slug: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
   readonly version: Maybe<Scalars['String']>;
 };
 
+
+type MarkdownRemarkFrontmatter_dateArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type MarkdownRemarkFrontmatter_lastmodArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
 type MarkdownRemarkFrontmatterFilterInput = {
+  readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly draft: InputMaybe<BooleanQueryOperatorInput>;
+  readonly lastmod: InputMaybe<DateQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
   readonly version: InputMaybe<StringQueryOperatorInput>;
 };
 
