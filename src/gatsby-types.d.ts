@@ -576,6 +576,8 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.excerptAst'
   | 'childMarkdownRemark.fileAbsolutePath'
+  | 'childMarkdownRemark.frontmatter.after'
+  | 'childMarkdownRemark.frontmatter.before'
   | 'childMarkdownRemark.frontmatter.date'
   | 'childMarkdownRemark.frontmatter.draft'
   | 'childMarkdownRemark.frontmatter.lastmod'
@@ -641,6 +643,8 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.excerptAst'
   | 'childrenMarkdownRemark.fileAbsolutePath'
+  | 'childrenMarkdownRemark.frontmatter.after'
+  | 'childrenMarkdownRemark.frontmatter.before'
   | 'childrenMarkdownRemark.frontmatter.date'
   | 'childrenMarkdownRemark.frontmatter.draft'
   | 'childrenMarkdownRemark.frontmatter.lastmod'
@@ -1109,6 +1113,8 @@ type MarkdownRemarkFieldsEnum =
   | 'excerpt'
   | 'excerptAst'
   | 'fileAbsolutePath'
+  | 'frontmatter.after'
+  | 'frontmatter.before'
   | 'frontmatter.date'
   | 'frontmatter.draft'
   | 'frontmatter.lastmod'
@@ -1203,6 +1209,8 @@ type MarkdownRemarkFilterListInput = {
 };
 
 type MarkdownRemarkFrontmatter = {
+  readonly after: Maybe<Scalars['String']>;
+  readonly before: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly draft: Maybe<Scalars['Boolean']>;
   readonly lastmod: Maybe<Scalars['Date']>;
@@ -1229,6 +1237,8 @@ type MarkdownRemarkFrontmatter_lastmodArgs = {
 };
 
 type MarkdownRemarkFrontmatterFilterInput = {
+  readonly after: InputMaybe<StringQueryOperatorInput>;
+  readonly before: InputMaybe<StringQueryOperatorInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly draft: InputMaybe<BooleanQueryOperatorInput>;
   readonly lastmod: InputMaybe<DateQueryOperatorInput>;
@@ -2785,17 +2795,26 @@ type StringQueryOperatorInput = {
   readonly regex: InputMaybe<Scalars['String']>;
 };
 
-type PostPageQueryVariables = Exact<{
+type DiffPageQueryVariables = Exact<{
+  before: Scalars['String'];
+  after: Scalars['String'];
   slug: Scalars['String'];
 }>;
 
 
-type PostPageQuery = { readonly markdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null, readonly version: string | null } | null } | null };
+type DiffPageQuery = { readonly before: { readonly rawMarkdownBody: string | null } | null, readonly after: { readonly rawMarkdownBody: string | null } | null, readonly meta: { readonly frontmatter: { readonly title: string | null, readonly date: string | null, readonly lastmod: string | null } | null } | null };
+
+type TextPageQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+type TextPageQuery = { readonly markdownRemark: { readonly html: string | null, readonly frontmatter: { readonly title: string | null, readonly version: string | null } | null } | null };
 
 type createPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type createPagesQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly frontmatter: { readonly slug: string | null, readonly title: string | null, readonly version: string | null } | null }> } };
+type createPagesQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly frontmatter: { readonly type: string | null, readonly slug: string | null, readonly before: string | null, readonly after: string | null } | null }> } };
 
 
 }

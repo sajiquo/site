@@ -2,7 +2,7 @@ import { graphql, HeadFC, PageProps } from "gatsby";
 import React from "react";
 import { Layout } from "../components/Layout";
 
-const PostPage = ({ data }: PageProps<Queries.PostPageQuery>) => {
+const TextPage = ({ data }: PageProps<Queries.TextPageQuery>) => {
   const remark = data.markdownRemark;
   if (
     !remark ||
@@ -25,10 +25,10 @@ const PostPage = ({ data }: PageProps<Queries.PostPageQuery>) => {
   );
 };
 
-export default PostPage;
+export default TextPage;
 
 export const pageQuery = graphql`
-  query PostPage($slug: String!) {
+  query TextPage($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
