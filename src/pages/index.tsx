@@ -1,6 +1,7 @@
 import * as React from "react";
 import { HeadFC, Link } from "gatsby";
 import { Layout } from "../components/Layout";
+import { SEO } from "../components/Seo";
 
 const IndexPage = () => {
   return (
@@ -17,4 +18,4 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Nachsommer</title>;
+
