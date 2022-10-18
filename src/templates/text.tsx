@@ -1,6 +1,7 @@
 import { graphql, HeadFC, PageProps } from "gatsby";
 import React from "react";
 import { Layout } from "../components/Layout";
+import { SEO } from "../components/Seo";
 
 const TextPage = ({ data }: PageProps<Queries.TextPageQuery>) => {
   const remark = data.markdownRemark;
@@ -26,6 +27,10 @@ const TextPage = ({ data }: PageProps<Queries.TextPageQuery>) => {
 };
 
 export default TextPage;
+
+export const Head = ({ data }: PageProps<Queries.TextPageQuery>) => {
+  return <SEO title={data.markdownRemark?.frontmatter?.title || undefined} />;
+};
 
 export const pageQuery = graphql`
   query TextPage($slug: String!) {
