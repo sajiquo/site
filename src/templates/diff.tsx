@@ -2,6 +2,7 @@ import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { diffChars, diffLines, diffSentences, diffWords } from "diff";
 import { Layout } from "../components/Layout";
+import { SEO } from "../components/Seo";
 
 const DiffPage = ({ data }: PageProps<Queries.DiffPageQuery>) => {
   const before = data.before?.rawMarkdownBody?.replaceAll("\n\n", "\n");
@@ -33,6 +34,10 @@ const DiffPage = ({ data }: PageProps<Queries.DiffPageQuery>) => {
 };
 
 export default DiffPage;
+
+export const Head = ({ data }: PageProps<Queries.DiffPageQuery>) => {
+  return <SEO title={data.meta?.frontmatter?.title || undefined} />;
+};
 
 export const pageQuery = graphql`
   query DiffPage($before: String!, $after: String!, $slug: String!) {
