@@ -12,7 +12,7 @@ const DiffPage = ({ data }: PageProps<Queries.DiffPageQuery>) => {
   return (
     <Layout>
       <article className="prose prose-neutral prose-base leading-relaxed mx-auto px-4 whitespace-pre-line prose-p:m-0 sm:prose-lg sm:leading-loose sm:px-0 sm:prose-p:m-0 ">
-        <h1 className="mb-0 sm:mb-0">{data.meta?.frontmatter?.title}</h1>
+        <h1 className="mb-6 sm:mb-6">{data.meta?.frontmatter?.title}</h1>
         {diff.map((part) => {
           return (
             <span

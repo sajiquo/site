@@ -580,7 +580,6 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.before'
   | 'childMarkdownRemark.frontmatter.date'
   | 'childMarkdownRemark.frontmatter.draft'
-  | 'childMarkdownRemark.frontmatter.lastMod'
   | 'childMarkdownRemark.frontmatter.lastmod'
   | 'childMarkdownRemark.frontmatter.slug'
   | 'childMarkdownRemark.frontmatter.title'
@@ -648,7 +647,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.before'
   | 'childrenMarkdownRemark.frontmatter.date'
   | 'childrenMarkdownRemark.frontmatter.draft'
-  | 'childrenMarkdownRemark.frontmatter.lastMod'
   | 'childrenMarkdownRemark.frontmatter.lastmod'
   | 'childrenMarkdownRemark.frontmatter.slug'
   | 'childrenMarkdownRemark.frontmatter.title'
@@ -1119,7 +1117,6 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.before'
   | 'frontmatter.date'
   | 'frontmatter.draft'
-  | 'frontmatter.lastMod'
   | 'frontmatter.lastmod'
   | 'frontmatter.slug'
   | 'frontmatter.title'
@@ -1216,7 +1213,6 @@ type MarkdownRemarkFrontmatter = {
   readonly before: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly draft: Maybe<Scalars['Boolean']>;
-  readonly lastMod: Maybe<Scalars['Date']>;
   readonly lastmod: Maybe<Scalars['Date']>;
   readonly slug: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
@@ -1226,14 +1222,6 @@ type MarkdownRemarkFrontmatter = {
 
 
 type MarkdownRemarkFrontmatter_dateArgs = {
-  difference: InputMaybe<Scalars['String']>;
-  formatString: InputMaybe<Scalars['String']>;
-  fromNow: InputMaybe<Scalars['Boolean']>;
-  locale: InputMaybe<Scalars['String']>;
-};
-
-
-type MarkdownRemarkFrontmatter_lastModArgs = {
   difference: InputMaybe<Scalars['String']>;
   formatString: InputMaybe<Scalars['String']>;
   fromNow: InputMaybe<Scalars['Boolean']>;
@@ -1253,7 +1241,6 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly before: InputMaybe<StringQueryOperatorInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly draft: InputMaybe<BooleanQueryOperatorInput>;
-  readonly lastMod: InputMaybe<DateQueryOperatorInput>;
   readonly lastmod: InputMaybe<DateQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
@@ -1989,8 +1976,10 @@ type SiteFieldsEnum =
   | 'polyfill'
   | 'port'
   | 'siteMetadata.description'
+  | 'siteMetadata.image'
   | 'siteMetadata.siteUrl'
   | 'siteMetadata.title'
+  | 'siteMetadata.twitterUsername'
   | 'trailingSlash';
 
 type SiteFilterInput = {
@@ -2780,14 +2769,18 @@ type SitePluginSortInput = {
 
 type SiteSiteMetadata = {
   readonly description: Maybe<Scalars['String']>;
+  readonly image: Maybe<Scalars['String']>;
   readonly siteUrl: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
+  readonly twitterUsername: Maybe<Scalars['String']>;
 };
 
 type SiteSiteMetadataFilterInput = {
   readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly image: InputMaybe<StringQueryOperatorInput>;
   readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly twitterUsername: InputMaybe<StringQueryOperatorInput>;
 };
 
 type SiteSortInput = {
@@ -2816,6 +2809,11 @@ type DiffPageQueryVariables = Exact<{
 
 
 type DiffPageQuery = { readonly before: { readonly rawMarkdownBody: string | null } | null, readonly after: { readonly rawMarkdownBody: string | null } | null, readonly meta: { readonly frontmatter: { readonly title: string | null, readonly date: string | null, readonly lastmod: string | null } | null } | null };
+
+type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type IndexPageQuery = { readonly allMarkdownRemark: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly frontmatter: { readonly slug: string | null, readonly title: string | null, readonly version: string | null, readonly date: string | null, readonly lastmod: string | null } | null }> } };
 
 type TextPageQueryVariables = Exact<{
   slug: Scalars['String'];
