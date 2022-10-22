@@ -38,6 +38,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       allMarkdownRemark {
         nodes {
           frontmatter {
+            title
             type
             slug
             before
