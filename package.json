@@ -16,25 +16,25 @@
     "preinstall": "git submodule sync --recursive && git submodule update --init --recursive"
   },
   "dependencies": {
-    "diff": "^5.1.0",
-    "gatsby": "^4.24.0",
-    "gatsby-plugin-pnpm": "^1.2.10",
-    "gatsby-source-filesystem": "^4.24.0",
-    "gatsby-transformer-remark": "^5.24.0",
-    "modern-css-reset": "^1.4.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "diff": "5.1.0",
+    "gatsby": "4.24.5",
+    "gatsby-plugin-pnpm": "1.2.10",
+    "gatsby-source-filesystem": "4.24.0",
+    "gatsby-transformer-remark": "5.24.0",
+    "modern-css-reset": "1.4.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.7",
+    "@tailwindcss/typography": "0.5.7",
     "@types/diff": "^5.0.2",
     "@types/node": "^17.0.45",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
-    "autoprefixer": "^10.4.12",
-    "gatsby-plugin-postcss": "^5.24.0",
-    "postcss": "^8.4.16",
-    "tailwindcss": "^3.1.8",
-    "typescript": "^4.8.3"
+    "autoprefixer": "10.4.12",
+    "gatsby-plugin-postcss": "5.24.0",
+    "postcss": "8.4.18",
+    "tailwindcss": "3.2.1",
+    "typescript": "4.8.4"
   }
 }
